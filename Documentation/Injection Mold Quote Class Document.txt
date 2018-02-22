@@ -1,0 +1,18 @@
+Class: Injection Mold Quote
+
+Purpose: To encapsulate the cost calculations and pricing estimates for an injection mold that has the characteristics in the class Injection Mold.
+
+
+Data:
+
+- Injection mold Instance (inherited)
+- China Cost
+- Shipping Cost
+- Est. Domestic Cost
+
+
+Functions:
+
+- Recalculate China cost
+- Recalculate Shipping cost
+- Recalculate Domestic Cost

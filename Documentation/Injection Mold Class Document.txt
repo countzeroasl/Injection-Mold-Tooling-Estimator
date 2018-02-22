@@ -1,0 +1,31 @@
+Class: Injection Mold
+
+Purpose: To encapsulate the configuration data and relevant cost elements of a
+completed injection mold.
+
+
+Data:
+
+- Mold width: part width * (Cav/2) + extra steel/slide steel/runner steel
+- Mold Height part height * (Cav - (Cav/2)) + extra steel/slide steel/runner
+  steel
+- Mold Stack: Plates + Part height
+- # Slides
+- Core/Cav Steel
+- # Lifters
+- Slide Steel
+- Lifter Steel
+- Runner type:
+	- hot runner/valve gate needs to account for cav when > 1 (non-linear)
+- Unscrewing core?
+- Hydraulic Core?
+- Cal rods, oil heat, or water heat?
+- core/cav complexity (int or float multiplier)
+- slide complexity (int or float multiplier)
+- lifter complexity (int or float multiplier)
+
+
+Functions:
+
+- Recalculate Mold Base size
+- Recalculate runner size
