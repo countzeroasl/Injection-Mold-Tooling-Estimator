@@ -1,4 +1,5 @@
 import sys
+from tkinter import Label
 print(sys.executable)
 print(sys.version)
 print(sys.path)
@@ -26,3 +27,7 @@ emp_1 = Employee('Joshua', 'Walles')
 print(emp_1.first)
 print(emp_1.email)
 print(emp_1.fullname)
+
+widget = Label(None, text="Hello GUI World!")
+widget.pack()
+widget.mainloop()
