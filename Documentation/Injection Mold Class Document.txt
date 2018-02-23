@@ -6,13 +6,13 @@ completed injection mold.
 
 Data:
 
-- Mold width: part width * (Cav/2) + extra steel/slide steel/runner steel
-- Mold Height part height * (Cav - (Cav/2)) + extra steel/slide steel/runner
+X Mold width: part width * (Cav/2) + extra steel/slide steel/runner steel
+X Mold Height part height * (Cav - (Cav/2)) + extra steel/slide steel/runner
   steel
 - Mold Stack: Plates + Part height
-- # Slides
+X # Slides
 - Core/Cav Steel
-- # Lifters
+X # Lifters
 - Slide Steel
 - Lifter Steel
 - Runner type:
@@ -20,9 +20,9 @@ Data:
 - Unscrewing core?
 - Hydraulic Core?
 - Cal rods, oil heat, or water heat?
-- core/cav complexity (int or float multiplier)
-- slide complexity (int or float multiplier)
-- lifter complexity (int or float multiplier)
+X core/cav complexity (int or float multiplier)
+X slide complexity (int or float multiplier)
+X lifter complexity (int or float multiplier)
 
 
 Functions:
