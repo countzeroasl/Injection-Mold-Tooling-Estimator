@@ -16,5 +16,8 @@ class InjectionMold:
         self.slideComplexity = slideComplexity
         self.lifterComplexity = lifterComplexity
 
-    def moldWidth(self):
-        return partWidth
+    def moldWidth(self, runnerSteel = 4, moldSteel = 4, slideSteel = 6):
+        return ((partWidth*(cavities/2))+runnerSteel+moldSteel+slideSteel)
+
+    def moldHeight(self, runnerSteel = 4, moldSteel = 4, slideSteel = 6, spacingSteel = 2):
+        return ((partHeight*(cavities-(cavities/2)))+runnerSteel+moldSteel+slideSteel+(spacingSteel*((cavities-(cavities/2))-1)))
