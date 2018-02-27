@@ -6,35 +6,39 @@ import sqlite3
 
 class Todo(tk.Tk):
     def __init__(self, tasks=None):
-        super().__init__()
+        super().__init__()  #runs the initialization process of tk.Tk as part of the initialization of Todo
 
-        if not tasks:
+        if not tasks:       #if there have been no tasks imported from the database, create an empty list
             self.tasks = []
         else:
             self.tasks = tasks
 
-        self.tasks_canvas = tk.Canvas(self)
+        self.tasks_canvas = tk.Canvas(self) #This creates a canvas on the window for the task list because Canvases can scroll
 
-        self.tasks_frame = tk.Frame(self.tasks_canvas)
-        self.text_frame = tk.Frame(self)
+        #Frames are layout components that group multiple widgets (in this case, tasks using Label widgets)
+        self.tasks_frame = tk.Frame(self.tasks_canvas)  #This frame is parented to the canvas
+        self.text_frame = tk.Frame(self)    #This frame is parented to the window
 
+        #the "command=self.tasks_canvas.yview" option sets the tasks_canvas to be vertically scrollable and tells it to use this scrollbar.
+        #if we wanted it to be horizontally scrollable, it would be "command=self.tasks_canvas.xview"
         self.scrollbar = tk.Scrollbar(self.tasks_canvas, orient="vertical", command=self.tasks_canvas.yview)
 
+        #This line sets the "yscrollcommand" property of the canvas to tie to self.scrollbar
         self.tasks_canvas.configure(yscrollcommand=self.scrollbar.set)
 
         self.title("To-Do App v 3.0")
         self.geometry("300x400")
 
-        self.task_create = tk.Text(self.text_frame, height=3, bg="white", fg="black")
+        self.task_create = tk.Text(self.text_frame, height=3, bg="white", fg="black") #this is the actual text entry box in self.text_frame
 
-        self.tasks_canvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1)
+        self.task_create.pack(side=tk.BOTTOM, fill=tk.X)
+        self.text_frame.pack(side=tk.BOTTOM, fill=tk.X)
+        self.tasks_canvas.pack(side=tk.TOP, fill=tk.BOTH, expand=1) #Sets the canvas to fill the space and expand as the window does.
         self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
 
         self.canvas_frame = self.tasks_canvas.create_window((0, 0), window=self.tasks_frame, anchor="n")
 
-        self.task_create.pack(side=tk.BOTTOM, fill=tk.X)
-        self.text_frame.pack(side=tk.BOTTOM, fill=tk.X)
-        self.task_create.focus_set()
+        self.task_create.focus_set()    #puts the cursor in the textbox so that one can immediately begin typing a task.
 
         todo1 = tk.Label(self.tasks_frame, text = "--- Add Items Here ---", bg="lightgrey", fg="black", pady=10)
         todo1.bind("<Button-1>", self.remove_task)
