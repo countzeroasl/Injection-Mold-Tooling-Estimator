@@ -3,6 +3,7 @@ import tkinter.messagebox as msg
 import os
 import sqlite3
 
+
 class Todo(tk.Tk):
     def __init__(self, tasks=None):
         super().__init__()
@@ -102,6 +103,7 @@ class Todo(tk.Tk):
         task.configure(fg=my_scheme_choice["fg"])
 
     def on_frame_configure(self, event=None):
+
         self.tasks_canvas.configure(scrollregion=self.tasks_canvas.bbox("all"))
 
     def task_width(self,event):
@@ -152,8 +154,8 @@ class Todo(tk.Tk):
         Todo.runQuery(create_tables)
 
         default_task_query = "INSERT INTO tasks VALUES (?)"
-        default_task_data = ("--- Add Items Here ---")
-        Todo.runQuery(default_task_query, default_task_data,)
+        default_task_data = ("--- Add Items Here ---",)
+        Todo.runQuery(default_task_query, default_task_data)
 
 
 if __name__ == '__main__':
